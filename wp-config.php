@@ -87,13 +87,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-//I added these code
-//define( 'SMTP_HOST', 'smtp.mailtrap.io' );  // A2 Hosting server name. For example, "a2ss10.a2hosting.com"
-//define( 'SMTP_AUTH', true );
-//define( 'SMTP_PORT', '2525' );
-//define( 'SMTP_SECURE', 'ssl' );
-//define( 'SMTP_USERNAME', 'a8708d956d2e34' );  // Username for SMTP authentication
-//define( 'SMTP_PASSWORD', '01579f1934d78c' );          // Password for SMTP authentication
-//define( 'SMTP_FROM',     'admin@admin.com' );  // SMTP From address
-//define( 'SMTP_FROMNAME', 'Utshab' );         // SMTP From name

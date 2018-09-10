@@ -36,6 +36,7 @@ function cbx_contact(){
 //    die();
 
     ?>
+    <div id="alert-message"></div>
     <script></script>
 
 
@@ -53,6 +54,8 @@ function basevalue_scripts() {
     wp_enqueue_script( 'ajax_script', plugin_dir_url( __FILE__ ). 'my_ajax_script.js', array( 'jquery' ), '3.3.6', true );
     wp_localize_script( 'ajax_script', 'my_ajax_object',
         array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+    wp_enqueue_style('bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css',array(), '4.4.1');
 }
 
 add_action( 'wp_enqueue_scripts', 'basevalue_scripts' );
@@ -146,3 +149,63 @@ function my_test_ajax()
 
 }
 
+//enclosing short-code for converting the string to uppercase
+function text_uppercase($atts = [], $content = null){
+    return strtoupper($content);
+}
+add_shortcode('uppercase', 'text_uppercase');
+
+
+//adding a custom meta box
+function cbx_add_custom_box(){
+    $screens = ['post'];
+    foreach ($screens as $screen){
+        add_meta_box(
+            'cbx_box_id',                   // Unique ID
+            'CBX Custom Meta Box',         // Box title
+            'cbx_custom_box_html',      // Content callback, must be of type callable
+            $screen,                           // Post type
+            'advanced'
+        );
+    }
+}
+
+add_action('add_meta_boxes', 'cbx_add_custom_box');
+
+function cbx_custom_box_html($post){
+
+//    $value = get_post_custom( $post->ID );
+//    var_dump($values);
+
+    $value = get_post_meta($post->ID, 'cbx_meta_key', true);
+    echo '<pre>';
+    var_dump($value);
+    echo '</pre>';
+//    die();
+    ?>
+    <label for="cbx_field">Description for this field</label>
+    <select name="cbx_field" id="cbx_field">
+        <option value="">Select something...</option>
+        <option value="something" <?php selected($value, 'something'); ?> >Something</option>
+        <option value="else" <?php selected($value, 'else'); ?> >Else</option>
+    </select>
+    <?php
+}
+
+//saving the postdata
+function cbx_save_postdata($post_id)
+{
+//        var_dump($post_id);
+//        die();
+    if (array_key_exists('cbx_field', $_POST)) {
+        update_post_meta(
+            $post_id,
+            'cbx_meta_key',
+            esc_attr($_POST['cbx_field'])
+        );
+    }
+}
+add_action('save_post', 'cbx_save_postdata');
+
+
+//die();

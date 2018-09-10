@@ -18,6 +18,13 @@ get_header(); ?>
 
 			<?php
 			/* Start the Loop */
+			echo 'echo form single.php file</br>';
+            $meta = get_post_meta($post->ID);
+//            echo '<pre>';
+//            var_dump($meta);
+//            echo '</pre>';
+            echo $meta['cbx_meta_key'][0];
+
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'template-parts/post/content', get_post_format() );
