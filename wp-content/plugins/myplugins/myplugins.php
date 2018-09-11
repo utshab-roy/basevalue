@@ -9,6 +9,9 @@ Author URI: http://www.github.com/utshab-roy
 License: GPL2
 */
 
+if (!isset($_SESSION)) session_start();
+
+
 //
 //if (isset($_POST['form_submit']) && (intval($_POST['form_submit'])) == '1'){
 //    echo '<pre>';
@@ -61,21 +64,78 @@ function cbx_contact(){
     //$current_url =  home_url( $wp->request );
 
     $current_url = $_SERVER['REQUEST_URI'];
+    //storing all the session value
+if (isset($_SESSION)){
+    $error = array();
+    $data = array();
 
-//    var_dump($current_url);
+    if (!empty($_SESSION['name'])){
+        $data['name'] = $_SESSION['name'];
+    }
+    if (!empty($_SESSION['error_name'])){
+        $error['name_error'] = $_SESSION['error_name'];
+    }
 
-    $form =
-        '<form id="contact_form" method="POST" action="'.$current_url.'">'.
-        'Full Name: <input type="text" name="name" id="name" /><br>'.
-        'Email: <input type="email" name="email"/><br>'.
-        'Subject: <input type="text" name="subject"/><br>'.
-        'Message: <textarea rows="4" cols="50" name="message"></textarea><br>'.
-        '<input type="hidden" name="actionpage" value="'.$current_url.'" />'.
-        '<button type="submit" name="cbxform_submit" id="cbxform_submit" value="1"> Submit </button>'.
-    '</form>';
+    if (!empty($_SESSION['email'])){
+        $data['email'] = $_SESSION['email'];
+    }
+    if (!empty($_SESSION['error_email'])){
+        $error['email_error'] = $_SESSION['error_email'];
+    }
 
+    if (!empty($_SESSION['subject'])){
+        $data['subject'] = $_SESSION['subject'];
+    }
+    if (!empty($_SESSION['error_subject'])){
+        $error['subject_error'] = $_SESSION['error_subject'];
+    }
+
+    if (!empty($_SESSION['message'])){
+        $data['message'] = $_SESSION['message'];
+    }
+    if (!empty($_SESSION['error_message'])){
+        $error['message_error'] = $_SESSION['error_message'];
+    }
+
+    if (!empty($_SESSION['mail_sent'])){
+        $error['mail_sent'] = $_SESSION['mail_sent'];
+    }
+    //making the $_SESSION  an empty array for the next session
+    $_SESSION = array();
+}
+
+    ob_start();
     ?>
-    <script>
+    <div>
+<!--        --><?php //var_dump($data); die(); ?>
+        <form id="contact_form" method="POST" action="<?= $current_url?>">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" id="name" value="<?php if (!empty($data['name'])) echo $data['name']; ?>" />
+            <label for="name_error"><?php if (!empty($error['name_error'])) echo $error['name_error']; ?></label>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email"  value="<?php if (!empty($data['email'])) echo $data['email']; ?>" />
+            <label for="email_error"><?php if (!empty($error['email_error'])) echo $error['email_error']; ?></label>
+
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" value="<?php if (!empty($data['subject'])) echo $data['subject']; ?>"/>
+            <label for="subject_error"><?php if (!empty($error['subject_error'])) echo $error['subject_error']; ?></label>
+
+
+            <label for="message">Message:</label>
+            <textarea rows="4" cols="50" name="message"></textarea>
+            <label for="message_error"><?php if (!empty($error['message_error'])) echo $error['message_error']; ?></label>
+
+            <input type="hidden" name="actionpage" value="<?= $current_url?>" />
+            <button type="submit" name="cbxform_submit" id="cbxform_submit" value="1"> Submit </button>
+        </form>
+    </div>
+
+    <?php
+    $form = ob_get_contents();
+    ob_end_clean();
+    ?>
+    <!--<script>
         jQuery(document).ready(function ($) {
 //            console.log('sdfsdf');
             $('#contact_form').validate({
@@ -104,7 +164,7 @@ function cbx_contact(){
 
 
         });
-    </script>
+    </script>-->
 
 
 <?php
@@ -114,42 +174,61 @@ function cbx_contact(){
 
 add_shortcode('contact', 'cbx_contact');
 
-
+$data = array();
 function my_page_template_redirect()
 {
+
+    //necessary array for the messages
+    $output = array();
+    $output['validation'] = 1;
+    $output['success_messages'] = array();
+    $output['validation_messages'] = array();
+
+    $validation_messages  = array();
+    $success_messages  = array();
+
     if(isset($_POST['cbxform_submit']) && intval($_POST['cbxform_submit']) == 1){
         $form_valid = true;
         //get the fields here, do some operation and then return to previous page
-        $data = array();
-
+        //validation for the name field
         if (isset($_POST['name'])) {
-            if (!empty($_POST['name'])) {
-                $data['name'] = $_POST['name'];
-            }else{
+            $data['name'] = $_POST['name'];
+            if (empty($data['name'])) {
+                $validation_messages['error_name'] =  'Name cannot be empty';
+                $output['validation'] = 0;
                 $form_valid = false;
             }
         }
-
+        //validation for the email field
         if (isset($_POST['email'])) {
-            if (!empty($_POST['email'])) {
-                $data['email'] = $_POST['email'];
-            }else{
+            $data['email'] = $_POST['email'];
+            if (empty($data['email'])) {
+                $validation_messages['error_email'] =  'Email is empty, give your email';
+                $output['validation'] = 0;
+                $form_valid = false;
+            } elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $validation_messages['error_email'] =  'Invalid email';
+                $output['validation'] = 0;
                 $form_valid = false;
             }
         }
 
+        //validation for the subject field
         if (isset($_POST['subject'])) {
-            if (!empty($_POST['subject'])) {
-                $data['subject'] = $_POST['subject'];
-            }else{
+            $data['subject'] = $_POST['subject'];
+            if (empty($data['subject'])) {
+                $validation_messages['error_subject'] =  'Subject cannot be empty';
+                $output['validation'] = 0;
                 $form_valid = false;
             }
         }
 
+        //validation for the message field
         if (isset($_POST['message'])) {
-            if (!empty($_POST['message'])) {
-                $data['message'] = $_POST['message'];
-            }else{
+            $data['message'] = $_POST['message'];
+            if (empty($data['message'])) {
+                $validation_messages['error_message'] =  'Enter your message';
+                $output['validation'] = 0;
                 $form_valid = false;
             }
         }
@@ -157,8 +236,14 @@ function my_page_template_redirect()
         //if the form is valid then send the mail
         if ($form_valid){
             wp_mail ( $data['email'], $data['subject'], $data['message'] );
+            $success_messages['mail_sent'] = 'Mail has been sent successfully.';
+            $_SESSION = $success_messages;
         }else{
-            echo 'need to fill up the form';
+            //all the validation message is stored in the $_SESSION array
+//            $_SESSION = $validation_messages;
+            $_SESSION = array_merge($validation_messages, $data);
+//            var_dump($_SESSION);
+//            die();
         }
 
         $actionpage_url = isset($_POST['actionpage'])? esc_url($_POST['actionpage']): esc_url(home_url());
@@ -187,6 +272,8 @@ function basevalue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'basevalue_scripts' );
+
+//add_action('init');
 
 
 
