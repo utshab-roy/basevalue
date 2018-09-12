@@ -15,52 +15,82 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-function frequently_asked_questions(){
-    ob_start();
+class CBXFaq{
+    public function __construct() {
 
-	global $post;
-	$args = array(
-		'posts_per_page' => 5,
-		'post_type'      => 'cbxfaq',
-		'order'          => 'ASC',
-		'post_status'    => 'publish',
-	);
-    $posts_array = get_posts( $args );
+	    add_shortcode('showfaq', array($this, 'frequently_asked_questions'));
 
+	    add_action('init', array($this, 'faq_custom_post_type'));
 
-    if ( $posts_array ) {
-        foreach ( $posts_array as $post ) :
-            setup_postdata( $post ); ?>
-            <h3><?php the_title(); ?></h3>
-            <?php the_content(); ?>
-        <?php
-        endforeach;
-        wp_reset_postdata();
+	    add_action( 'wp_enqueue_scripts', array($this, 'basevalue_scripts') );
     }
 
-    $faq_posts = ob_get_contents();
-    ob_end_clean();
+    //callable function for short-code
+	function frequently_asked_questions(){
+		ob_start();
 
-    return $faq_posts;
+		global $post;
+		$args = array(
+			'posts_per_page' => -1,
+			'post_type'      => 'cbxfaq',
+			'order'          => 'ASC',
+			'post_status'    => 'publish',
+		);
+		$posts_array = get_posts( $args );
+
+
+		if ( $posts_array ) {
+			foreach ( $posts_array as $post ) :
+				setup_postdata( $post ); ?>
+                <h4 class="title-faq"><?php the_title(); ?></h4>
+
+				<div style="display: none;"><?php the_content(); ?></div>
+
+			<?php
+			endforeach;
+			wp_reset_postdata();
+		}
+
+		$faq_posts = ob_get_contents();
+		ob_end_clean();
+
+		return $faq_posts;
+	}
+
+	//creating custom post type for FAQ
+	function faq_custom_post_type()
+	{
+		register_post_type(
+			'cbxfaq',
+			array(
+				'labels'             => array(
+					'name'          => __( 'FAQ' ),
+					'singular_name' => __( 'FAQ' ),
+				),
+				'public'             => true,
+				'has_archive'        => true,
+				'rewrite'            => array( 'slug' => 'faq' ), // my custom slug
+				'publicly_queryable' => false,
+			)
+		);
+	}
+
+	// Add scripts and stylesheets
+	function basevalue_scripts() {
+		wp_enqueue_script( 'main', plugin_dir_url( __FILE__ ). 'main.js', array( 'jquery' ), '3.3.6', true );
+	}
+
 }
 
-add_shortcode('showfaq', 'frequently_asked_questions');
 
-//creating custom post type for FAQ
-function faq_custom_post_type()
-{
-    register_post_type(
-        'cbxfaq',
-	    array(
-		    'labels'             => array(
-			    'name'          => __( 'FAQ' ),
-			    'singular_name' => __( 'FAQ' ),
-		    ),
-		    'public'             => true,
-		    'has_archive'        => true,
-		    'rewrite'            => array( 'slug' => 'faq' ), // my custom slug
-		    'publicly_queryable' => false,
-	    )
-    );
+/**
+ * Load Plugin when all plugins loaded
+ *
+ * @return void
+ */
+function cbxfaq_load_plugin() {
+	new CBXFaq();
 }
-add_action('init', 'faq_custom_post_type');
+
+add_action( 'plugins_loaded', 'cbxfaq_load_plugin', 5 );
+
