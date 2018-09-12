@@ -83,29 +83,29 @@ jQuery(document).ready(function ($) {
 //*****************************************************************************
 
 
-//            this is the jquery validation process
-//            $('#contact_form').validate({
-//                rules: {
-//                    name: {required: true, minlength:5},
-//                    email: {required:true, email:true},
-//                    subject: {required:true},
-//                    message: {required:true, minlength:7}
-//                },
-//                messages: {
-//                    name: {
-//                        required: "name is required",
-//                        minlength: "Minimum {0} char"
-//                    },
-//                    email: {
-//                        required: "Email field is required",
-//                        email: "Must be a valid email"
-//                    },
-//                    subject: {required:"subject cannot be empty"},
-//                    message: {
-//                        required:"Enter your message",
-//                        minlength: "Minimum 7 charter required"
-//                    }
-//                }
-//            });//end of jQuery validation function
+           // this is the jquery validation process
+           $('#contact_form').validate({
+               rules: {
+                   name: {required: true, minlength:5},
+                   email: {required:true, email:true},
+                   subject: {required:true},
+                   message: {required:true, minlength:7}
+               },
+               messages: {
+                   name: {
+                       required: "name is required",
+                       minlength: "Minimum {0} char"
+                   },
+                   email: {
+                       required: "Email field is required",
+                       email: "Must be a valid email"
+                   },
+                   subject: {required:"subject cannot be empty"},
+                   message: {
+                       required:"Enter your message",
+                       minlength: "Minimum 7 charter required"
+                   }
+               }
+           });//end of jQuery validation function
 
 });//end of jQuery ready function

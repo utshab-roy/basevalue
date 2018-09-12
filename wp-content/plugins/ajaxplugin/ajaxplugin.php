@@ -149,6 +149,12 @@ function my_test_ajax()
 
 }
 
+
+
+
+
+
+
 //enclosing short-code for converting the string to uppercase
 function text_uppercase($atts = [], $content = null){
     return strtoupper($content);

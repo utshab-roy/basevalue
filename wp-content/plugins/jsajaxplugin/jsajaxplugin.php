@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: PHP validation PHP submission
+Plugin Name: JS validation AJAX submission
 Plugin URI: http://www.google.com
-description: a plugin to create awesomeness and spread joy
+description: This plugin will validate the form using js-validation and submit the form using ajax
 Version: 1.0
 Author: Mr. Utshab
 Author URI: http://www.github.com/utshab-roy
@@ -10,52 +10,6 @@ License: GPL2
 */
 
 if (!isset($_SESSION)) session_start();
-
-
-//
-//if (isset($_POST['form_submit']) && (intval($_POST['form_submit'])) == '1'){
-//    echo '<pre>';
-//    var_dump($_POST);
-////    var_dump(get_post());
-//    echo '</pre>';
-//}
-
-
-
-
-//Lorem demo
-function lorem_function()
-{
-    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla
-        Nam ullamcorper elit id magna hendrerit sit amet dignissim elit sodales. Aenean accumsan
-        consectetur rutrum.';
-}
-
-add_shortcode('lorem', 'lorem_function');
-
-
-function random_picture($atts)
-{
-//method one not preferable
-    /*extract(shortcode_atts(array(
-    'width' => 400,
-    'height' => 200,
-    ), $atts));*/
-
-//method two, this is preferable
-    $args = shortcode_atts(array(
-        'width' => 500,
-        'height' => 200,
-    ), $atts);
-
-    $width = $args['width'];
-    $height = $args['height'];
-
-    return '<img src="https://via.placeholder.com/' . $width . 'x' . $height . '" />';
-}
-
-add_shortcode('picture', 'random_picture');
-
 
 //contact us form
 function cbx_contact(){
@@ -65,50 +19,51 @@ function cbx_contact(){
 
     $current_url = $_SERVER['REQUEST_URI'];
     //storing all the session value
-if (isset($_SESSION)){
-    $error = array();
-    $data = array();
+    if (isset($_SESSION)){
+//        var_dump($_SESSION);
+//        die();
+        $error = array();
+        $data = array();
 
-    if (!empty($_SESSION['name'])){
-        $data['name'] = $_SESSION['name'];
-    }
-    if (!empty($_SESSION['error_name'])){
-        $error['name_error'] = $_SESSION['error_name'];
-    }
+        if (!empty($_SESSION['name'])){
+            $data['name'] = $_SESSION['name'];
+        }
+        if (!empty($_SESSION['error_name'])){
+            $error['name_error'] = $_SESSION['error_name'];
+        }
 
-    if (!empty($_SESSION['email'])){
-        $data['email'] = $_SESSION['email'];
-    }
-    if (!empty($_SESSION['error_email'])){
-        $error['email_error'] = $_SESSION['error_email'];
-    }
+        if (!empty($_SESSION['email'])){
+            $data['email'] = $_SESSION['email'];
+        }
+        if (!empty($_SESSION['error_email'])){
+            $error['email_error'] = $_SESSION['error_email'];
+        }
 
-    if (!empty($_SESSION['subject'])){
-        $data['subject'] = $_SESSION['subject'];
-    }
-    if (!empty($_SESSION['error_subject'])){
-        $error['subject_error'] = $_SESSION['error_subject'];
-    }
+        if (!empty($_SESSION['subject'])){
+            $data['subject'] = $_SESSION['subject'];
+        }
+        if (!empty($_SESSION['error_subject'])){
+            $error['subject_error'] = $_SESSION['error_subject'];
+        }
 
-    if (!empty($_SESSION['message'])){
-        $data['message'] = $_SESSION['message'];
-    }
-    if (!empty($_SESSION['error_message'])){
-        $error['message_error'] = $_SESSION['error_message'];
-    }
+        if (!empty($_SESSION['message'])){
+            $data['message'] = $_SESSION['message'];
+        }
+        if (!empty($_SESSION['error_message'])){
+            $error['message_error'] = $_SESSION['error_message'];
+        }
 
-    if (!empty($_SESSION['mail_sent'])){
-        $notice = $_SESSION['mail_sent'];
-        echo '<label for="name">'. $notice .'</label>';
+        if (!empty($_SESSION['mail_sent'])){
+            $notice = $_SESSION['mail_sent'];
+            echo '<label for="notice">'. $notice .'</label>';
+        }
+
     }
-    //making the $_SESSION  an empty array for the next session
-    $_SESSION = array();
-}
 
     ob_start();
     ?>
     <div>
-<!--        --><?php //var_dump($data); die(); ?>
+        <div id="alert-message"></div>
         <form id="contact_form" method="POST" action="<?= $current_url?>">
             <label for="name">Full Name:</label>
             <input type="text" name="name" id="name" value="<?php if (!empty($data['name'])) echo $data['name']; ?>" />
@@ -134,11 +89,14 @@ if (isset($_SESSION)){
 
     <?php
     $form = ob_get_contents();
+
+    //making the $_SESSION  an empty array for the next session
+    $_SESSION = array();
+
     ob_end_clean();
     ?>
-    <!--<script>
+    <script>
         jQuery(document).ready(function ($) {
-//            console.log('sdfsdf');
             $('#contact_form').validate({
                 rules: {
                     name: {required: true, minlength:5},
@@ -162,13 +120,11 @@ if (isset($_SESSION)){
                     }
                 }
             });
-
-
         });
-    </script>-->
+    </script>
 
 
-<?php
+    <?php
 
     return $form;
 }
@@ -176,9 +132,38 @@ if (isset($_SESSION)){
 add_shortcode('contact', 'cbx_contact');
 
 $data = array();
-function my_page_template_redirect()
-{
 
+
+
+function mailtrap($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'a8708d956d2e34';
+    $phpmailer->Password = '01579f1934d78c';
+}
+
+add_action('phpmailer_init', 'mailtrap');
+
+
+// Add scripts and stylesheets
+function basevalue_scripts() {
+    wp_enqueue_script( 'validation', plugin_dir_url( __FILE__ ). 'jquery.validate.js', array( 'jquery' ), '3.3.6', true );
+
+    wp_enqueue_script( 'ajax_script', plugin_dir_url( __FILE__ ). 'my_ajax_script.js', array( 'jquery' ), '3.3.6', true );
+    wp_localize_script( 'ajax_script', 'my_ajax_object',
+        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}
+
+add_action( 'wp_enqueue_scripts', 'basevalue_scripts' );
+
+add_action( 'wp_ajax_my_test_ajax', 'my_test_ajax' );
+add_action( 'wp_ajax_nopriv_my_test_ajax', 'my_test_ajax' );
+
+
+//function responsible for the ajax submission
+function my_test_ajax(){
     //necessary array for the messages
     $output = array();
     $output['validation'] = 1;
@@ -188,12 +173,17 @@ function my_page_template_redirect()
     $validation_messages  = array();
     $success_messages  = array();
 
-    if(isset($_POST['cbxform_submit']) && intval($_POST['cbxform_submit']) == 1){
+
+//    echo json_encode($_POST['cbxform_submit']);
+//    die();
+
         $form_valid = true;
+
         //get the fields here, do some operation and then return to previous page
         //validation for the name field
         if (isset($_POST['name'])) {
             $data['name'] = $_POST['name'];
+
             if (empty($data['name'])) {
                 $validation_messages['error_name'] =  'Name cannot be empty';
                 $output['validation'] = 0;
@@ -246,34 +236,10 @@ function my_page_template_redirect()
 //            var_dump($_SESSION);
 //            die();
         }
+        wp_send_json($_SESSION);
 
-        $actionpage_url = isset($_POST['actionpage'])? esc_url($_POST['actionpage']): esc_url(home_url());
-        wp_redirect( $actionpage_url );
-        die;
-    }
-}
-add_action( 'template_redirect', 'my_page_template_redirect' );
-
-
-function mailtrap($phpmailer) {
-    $phpmailer->isSMTP();
-    $phpmailer->Host = 'smtp.mailtrap.io';
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 2525;
-    $phpmailer->Username = 'a8708d956d2e34';
-    $phpmailer->Password = '01579f1934d78c';
 }
 
-add_action('phpmailer_init', 'mailtrap');
 
-
-// Add scripts and stylesheets
-function basevalue_scripts() {
-    wp_enqueue_script( 'validation', plugin_dir_url( __FILE__ ). 'jquery.validate.js', array( 'jquery' ), '3.3.6', true );
-}
-
-add_action( 'wp_enqueue_scripts', 'basevalue_scripts' );
-
-//add_action('init');
 
 

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: PHP validation PHP submission
+Plugin Name: JS validation PHP submission
 Plugin URI: http://www.google.com
 description: a plugin to create awesomeness and spread joy
 Version: 1.0
@@ -11,52 +11,6 @@ License: GPL2
 
 if (!isset($_SESSION)) session_start();
 
-
-//
-//if (isset($_POST['form_submit']) && (intval($_POST['form_submit'])) == '1'){
-//    echo '<pre>';
-//    var_dump($_POST);
-////    var_dump(get_post());
-//    echo '</pre>';
-//}
-
-
-
-
-//Lorem demo
-function lorem_function()
-{
-    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla
-        Nam ullamcorper elit id magna hendrerit sit amet dignissim elit sodales. Aenean accumsan
-        consectetur rutrum.';
-}
-
-add_shortcode('lorem', 'lorem_function');
-
-
-function random_picture($atts)
-{
-//method one not preferable
-    /*extract(shortcode_atts(array(
-    'width' => 400,
-    'height' => 200,
-    ), $atts));*/
-
-//method two, this is preferable
-    $args = shortcode_atts(array(
-        'width' => 500,
-        'height' => 200,
-    ), $atts);
-
-    $width = $args['width'];
-    $height = $args['height'];
-
-    return '<img src="https://via.placeholder.com/' . $width . 'x' . $height . '" />';
-}
-
-add_shortcode('picture', 'random_picture');
-
-
 //contact us form
 function cbx_contact(){
 
@@ -65,50 +19,50 @@ function cbx_contact(){
 
     $current_url = $_SERVER['REQUEST_URI'];
     //storing all the session value
-if (isset($_SESSION)){
-    $error = array();
-    $data = array();
+    if (isset($_SESSION)){
+//        var_dump($_SESSION);
+//        die();
+        $error = array();
+        $data = array();
 
-    if (!empty($_SESSION['name'])){
-        $data['name'] = $_SESSION['name'];
-    }
-    if (!empty($_SESSION['error_name'])){
-        $error['name_error'] = $_SESSION['error_name'];
-    }
+        if (!empty($_SESSION['name'])){
+            $data['name'] = $_SESSION['name'];
+        }
+        if (!empty($_SESSION['error_name'])){
+            $error['name_error'] = $_SESSION['error_name'];
+        }
 
-    if (!empty($_SESSION['email'])){
-        $data['email'] = $_SESSION['email'];
-    }
-    if (!empty($_SESSION['error_email'])){
-        $error['email_error'] = $_SESSION['error_email'];
-    }
+        if (!empty($_SESSION['email'])){
+            $data['email'] = $_SESSION['email'];
+        }
+        if (!empty($_SESSION['error_email'])){
+            $error['email_error'] = $_SESSION['error_email'];
+        }
 
-    if (!empty($_SESSION['subject'])){
-        $data['subject'] = $_SESSION['subject'];
-    }
-    if (!empty($_SESSION['error_subject'])){
-        $error['subject_error'] = $_SESSION['error_subject'];
-    }
+        if (!empty($_SESSION['subject'])){
+            $data['subject'] = $_SESSION['subject'];
+        }
+        if (!empty($_SESSION['error_subject'])){
+            $error['subject_error'] = $_SESSION['error_subject'];
+        }
 
-    if (!empty($_SESSION['message'])){
-        $data['message'] = $_SESSION['message'];
-    }
-    if (!empty($_SESSION['error_message'])){
-        $error['message_error'] = $_SESSION['error_message'];
-    }
+        if (!empty($_SESSION['message'])){
+            $data['message'] = $_SESSION['message'];
+        }
+        if (!empty($_SESSION['error_message'])){
+            $error['message_error'] = $_SESSION['error_message'];
+        }
 
-    if (!empty($_SESSION['mail_sent'])){
-        $notice = $_SESSION['mail_sent'];
-        echo '<label for="name">'. $notice .'</label>';
+        if (!empty($_SESSION['mail_sent'])){
+            $notice = $_SESSION['mail_sent'];
+            echo '<label for="name">'. $notice .'</label>';
+        }
+
     }
-    //making the $_SESSION  an empty array for the next session
-    $_SESSION = array();
-}
 
     ob_start();
     ?>
     <div>
-<!--        --><?php //var_dump($data); die(); ?>
         <form id="contact_form" method="POST" action="<?= $current_url?>">
             <label for="name">Full Name:</label>
             <input type="text" name="name" id="name" value="<?php if (!empty($data['name'])) echo $data['name']; ?>" />
@@ -134,11 +88,14 @@ if (isset($_SESSION)){
 
     <?php
     $form = ob_get_contents();
+
+    //making the $_SESSION  an empty array for the next session
+    $_SESSION = array();
+
     ob_end_clean();
     ?>
-    <!--<script>
+    <script>
         jQuery(document).ready(function ($) {
-//            console.log('sdfsdf');
             $('#contact_form').validate({
                 rules: {
                     name: {required: true, minlength:5},
@@ -162,13 +119,11 @@ if (isset($_SESSION)){
                     }
                 }
             });
-
-
         });
-    </script>-->
+    </script>
 
 
-<?php
+    <?php
 
     return $form;
 }
