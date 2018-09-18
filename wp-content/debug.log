@@ -1,109 +1,95 @@
-[11-Sep-2018 09:40:05 UTC] PHP Notice:  Array to string conversion in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\jsajaxplugin\jsajaxplugin.php on line 176
-[11-Sep-2018 09:40:17 UTC] PHP Notice:  Array to string conversion in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\jsajaxplugin\jsajaxplugin.php on line 176
-[11-Sep-2018 09:43:02 UTC] PHP Notice:  Undefined index: cbxform_submit in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\jsajaxplugin\jsajaxplugin.php on line 176
-[11-Sep-2018 11:55:28 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'wporg_custom_post_type' not found or invalid function name in C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php on line 286
-[11-Sep-2018 11:55:54 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'wporg_custom_post_type' not found or invalid function name in C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php on line 286
-[11-Sep-2018 11:56:19 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'wporg_custom_post_type' not found or invalid function name in C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php on line 286
-[11-Sep-2018 12:11:12 UTC] PHP Notice:  Undefined index: cbx_meta_key in C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\single.php on line 26
-[12-Sep-2018 05:20:34 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:20:58 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:20:58 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:20:58 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:20:58 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:21:03 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:21:03 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:21:03 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:21:03 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:21:17 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:21:17 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:21:17 UTC] PHP Notice:  Undefined index: post_title in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:21:17 UTC] PHP Notice:  Undefined index: post_content in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:21:37 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:44
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:21:41 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:44
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 44
-[12-Sep-2018 05:22:01 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:45
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 45
-[12-Sep-2018 05:24:36 UTC] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 40
-[12-Sep-2018 05:26:24 UTC] PHP Recoverable fatal error:  Object of class WP_Post could not be converted to string in C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php on line 48
-[12-Sep-2018 05:34:18 UTC] PHP Parse error:  syntax error, unexpected '}' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 55
-[12-Sep-2018 05:36:03 UTC] PHP Notice:  Undefined offset: 1 in C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-query.php on line 3071
-[12-Sep-2018 05:36:03 UTC] PHP Notice:  Trying to get property 'post_content' of non-object in C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php on line 298
-[12-Sep-2018 05:36:03 UTC] PHP Notice:  Undefined offset: 2 in C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-query.php on line 3071
-[12-Sep-2018 05:36:03 UTC] PHP Notice:  Trying to get property 'post_content' of non-object in C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php on line 298
-[12-Sep-2018 05:36:03 UTC] PHP Notice:  Trying to get property 'comment_status' of non-object in C:\xampp\htdocs\WP\basevalue\wp-includes\comment-template.php on line 1196
-[12-Sep-2018 05:37:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function post_title() in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:47
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-includ in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 47
-[12-Sep-2018 05:39:11 UTC] PHP Recoverable fatal error:  Object of class WP_Post could not be converted to string in C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php on line 48
-[12-Sep-2018 05:49:33 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:42
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 42
-[12-Sep-2018 05:49:48 UTC] PHP Recoverable fatal error:  Object of class WP_Post could not be converted to string in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 42
-[12-Sep-2018 05:50:22 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:42
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 42
-[12-Sep-2018 05:50:40 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php:42
-Stack trace:
-#0 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(319): frequently_asked_questions('', '', 'showfaq')
-#1 [internal function]: do_shortcode_tag(Array)
-#2 C:\xampp\htdocs\WP\basevalue\wp-includes\shortcodes.php(197): preg_replace_callback('/\\[(\\[?)(showfa...', 'do_shortcode_ta...', '[showfaq]\n')
-#3 C:\xampp\htdocs\WP\basevalue\wp-includes\class-wp-hook.php(286): do_shortcode('[showfaq]\n')
-#4 C:\xampp\htdocs\WP\basevalue\wp-includes\plugin.php(203): WP_Hook->apply_filters('[showfaq]\n', Array)
-#5 C:\xampp\htdocs\WP\basevalue\wp-includes\post-template.php(240): apply_filters('the_content', '[showfaq]')
-#6 C:\xampp\htdocs\WP\basevalue\wp-content\themes\twentyseventeen\template-parts\page\content-page.php(22): the_content()
-#7 C:\xampp\htdocs\WP\basevalue\wp-includes\template.php(690): require('C:\\xampp\\htdocs...')
-#8 C:\xampp\htdocs\WP\basevalue\wp-inc in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 42
-[12-Sep-2018 07:05:54 UTC] PHP Notice:  map_meta_cap was called <strong>incorrectly</strong>. The post type cbx_faq is not registered, so it may not be reliable to check the capability "edit_post" against a post of that type. Please see <a href="https://codex.wordpress.org/Debugging_in_WordPress">Debugging in WordPress</a> for more information. (This message was added in version 4.4.0.) in C:\xampp\htdocs\WP\basevalue\wp-includes\functions.php on line 4161
-[12-Sep-2018 07:20:20 UTC] PHP Warning:  An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href="https://wordpress.org/support/">support forums</a>. (WordPress could not establish a secure connection to WordPress.org. Please contact your server administrator.) in C:\xampp\htdocs\WP\basevalue\wp-includes\update.php on line 347
+[17-Sep-2018 07:31:26 UTC] PHP Warning:  call_user_func() expects parameter 1 to be a valid callback, function 'wporg_field_name_cb' not found or invalid function name in C:\xampp\htdocs\WP\basevalue\wp-admin\includes\template.php on line 1388
+[17-Sep-2018 08:59:53 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 237
+[17-Sep-2018 09:00:54 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 237
+[17-Sep-2018 09:02:55 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 237
+[17-Sep-2018 09:21:04 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:21:04 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:21:21 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:21:21 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:21:25 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:21:25 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:21:30 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:21:30 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:21:35 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:21:35 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:22:04 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:22:04 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:22:09 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 242
+[17-Sep-2018 09:22:09 UTC] PHP Notice:  Undefined index: wporg_field_places[] in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 243
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:22 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:25 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:25:53 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:08 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:11 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:26:35 UTC] PHP Notice:  Undefined index:  in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 239
+[17-Sep-2018 09:29:28 UTC] PHP Notice:  Undefined index: checkbox_example in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 238
+[17-Sep-2018 10:18:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:22 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:22 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:18:26 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:26 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:26 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:27 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:18:37 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:37 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:37 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:37 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:18:41 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:41 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:41 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:41 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:18:45 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:45 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:45 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:45 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:18:49 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:18:49 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:18:49 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:18:49 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 258
+[17-Sep-2018 10:28:31 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 255
+[17-Sep-2018 10:28:31 UTC] PHP Notice:  Undefined index: wporg_custom_data in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 256
+[17-Sep-2018 10:28:31 UTC] PHP Notice:  Undefined index: label_for in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 257
+[17-Sep-2018 10:39:03 UTC] PHP Notice:  Undefined index: postlink in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 265
+[17-Sep-2018 10:39:03 UTC] PHP Notice:  Undefined index: postlink in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 267
+[17-Sep-2018 11:02:22 UTC] PHP Notice:  Undefined index: postlink in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 267
+[17-Sep-2018 11:02:45 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 267
+[17-Sep-2018 11:04:07 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:04:07 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 267
+[17-Sep-2018 11:04:09 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:04:09 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 267
+[17-Sep-2018 11:08:08 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:08:11 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:08:28 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:09:23 UTC] PHP Notice:  Undefined index: wporg_field_places in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 266
+[17-Sep-2018 11:54:33 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in C:\xampp\htdocs\WP\basevalue\wp-content\plugins\faqplagin\faqplugin.php on line 254
