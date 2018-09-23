@@ -155,33 +155,42 @@ class CBXDashboardWidget{
     }
 
     function cbxnotice_custom_box_html($post){
-	    $value = get_post_meta($post->ID, 'cbxnotice_role_meta_key', true);
+
+	    $roles = get_editable_roles();
+
+	    $cbxnotice_role = get_post_meta($post->ID, 'cbxnotice_role', true);
+	    if(!is_array($cbxnotice_role)) $cbxnotice_role = array();
+
+	    /*echo '<pre>';
+	    print_r($cbxnotice_role);
+	    echo '</pre>';*/
 	    ?>
 
         <label for="cbxnotice_role">Who will see the notice:</label>
-        <select name="cbxnotice_role" id="cbxnotice_role" >
-
-
-<!--            <option value="something" --><?php //selected($value, 'something'); ?><!-->Something</option>-->
-
-            <?php $roles = get_editable_roles();?>
+        <select name="cbxnotice_role[]" id="cbxnotice_role" multiple>
+            <?php ?>
             <?php foreach ($roles as  $key => $role_details):?>
-            <option value="<?php echo $key; ?>" <?php selected($value, "$key"); ?>><?php echo $key;?></option>
+            <option <?php  echo (in_array($key, $cbxnotice_role))? ' selected="selected"': ''; ?> value="<?php echo $key; ?>" ><?php echo $key;?></option>
 		    <?php endforeach;?>
-
-
-<!--            <option value="else" --><?php //selected($value, 'else'); ?><!-->Else</option>-->
         </select>
 	    <?php
     }
 
 	function cbxnotice_save_postdata($post_id)
 	{
+	    /*echo '<pre>';
+	    print_r($_POST['cbxnotice_role']);
+	    echo '</pre>';
+
+	    exit();*/
+
+	    $cbxnotice_role  = isset($_POST['cbxnotice_role'])? $_POST['cbxnotice_role']: array();
+
 		if (array_key_exists('cbxnotice_role', $_POST)) {
 			update_post_meta(
 				$post_id,
-				'cbxnotice_role_meta_key',
-				$_POST['cbxnotice_role']
+				'cbxnotice_role',
+				$cbxnotice_role
 			);
 		}
 	}
