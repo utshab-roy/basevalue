@@ -31,6 +31,12 @@ class CBXDashboardWidget{
 
 		//adding JS file to admin panel
 		add_action( 'admin_enqueue_scripts', array($this, 'basevalue_admin_script') );
+
+		//adding custom metabox for the CBXNotice
+		add_action('add_meta_boxes', array($this, 'cbx_notice_add_custom_box'));
+
+		//saving the cbxnotice metabox value
+		add_action('save_post', array($this, 'cbxnotice_save_postdata'));
 	}
 
 
@@ -67,19 +73,32 @@ class CBXDashboardWidget{
 		);
 		$posts_array = get_posts( $args );
 
+//		$value = get_post_meta($posts_array['ID'], 'cbxnotice_role_meta_key', true);
+//		var_dump($posts_array);
+//		die();
+
 		if ( $posts_array ) {
 			foreach ( $posts_array as $post ) :
+				$cbxnotice_role = get_post_meta( $post->ID, 'cbxnotice_role_meta_key', true );
+//				var_dump($cbxnotice_role);
+//				echo '</br>';
+				$user              = wp_get_current_user();
+				$current_user_role = $user->roles;
+//				var_dump($current_user_role);
 				setup_postdata( $post ); ?>
+				<?php
+				if ( in_array( $cbxnotice_role, $current_user_role ) ):
+					?>
+                    <li class="title-notice"><?php the_title(); ?></li>
 
-				<li class="title-notice"><?php the_title(); ?></li>
+                    <div style="display: none;" class="content-notice"><?php the_content(); ?></div>
 
-				<div style="display: none;" class="content-notice" ><?php the_content();?></div>
-
-			<?php
+				<?php
+				endif;
 			endforeach;
 
 			?>
-	<div id="cbx_notice_dialog"></div>
+            <div id="cbx_notice_dialog"></div>
 			<?php
 
 			wp_reset_postdata();
@@ -120,6 +139,51 @@ class CBXDashboardWidget{
 
 		wp_enqueue_script( 'jquery-ui-dialog' );
 		wp_enqueue_style( 'wp-jquery-ui-dialog' );
+	}
+
+	//adding metabox for the cbxnotice post type
+    function cbx_notice_add_custom_box(){
+	    $screens = ['cbxnotice'];
+	    foreach ($screens as $screen) {
+		    add_meta_box(
+			    'cbxnotice_box_id',           // Unique ID
+			    'Notice assigned for the role',  // Box title
+			    array($this, 'cbxnotice_custom_box_html'),  // Content callback, must be of type callable
+			    $screen                   // Post type
+		    );
+	    }
+    }
+
+    function cbxnotice_custom_box_html($post){
+	    $value = get_post_meta($post->ID, 'cbxnotice_role_meta_key', true);
+	    ?>
+
+        <label for="cbxnotice_role">Who will see the notice:</label>
+        <select name="cbxnotice_role" id="cbxnotice_role" >
+
+
+<!--            <option value="something" --><?php //selected($value, 'something'); ?><!-->Something</option>-->
+
+            <?php $roles = get_editable_roles();?>
+            <?php foreach ($roles as  $key => $role_details):?>
+            <option value="<?php echo $key; ?>" <?php selected($value, "$key"); ?>><?php echo $key;?></option>
+		    <?php endforeach;?>
+
+
+<!--            <option value="else" --><?php //selected($value, 'else'); ?><!-->Else</option>-->
+        </select>
+	    <?php
+    }
+
+	function cbxnotice_save_postdata($post_id)
+	{
+		if (array_key_exists('cbxnotice_role', $_POST)) {
+			update_post_meta(
+				$post_id,
+				'cbxnotice_role_meta_key',
+				$_POST['cbxnotice_role']
+			);
+		}
 	}
 
 

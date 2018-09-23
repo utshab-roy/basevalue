@@ -3,10 +3,10 @@ jQuery(document).ready(function ($) {
 
     $('.title-notice').on('click', function (e) {
         e.preventDefault();
-        console.log('title clicked !');
+        // console.log('title clicked !');
 
         var $title = $(this).text();
-        console.log($title);
+        // console.log($title);
 
         var $content = $(this).next('.content-notice').html();
 
@@ -28,6 +28,6 @@ jQuery(document).ready(function ($) {
         });
 
 
-    });
+    });//end of on click title-notice method
 
 });//end of jQuery ready function
